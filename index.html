@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML Basics Tutorial</title>
@@ -9,8 +11,17 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 20px;
-      background: #f9f9f9;
+      	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    	background-size: 400% 400%;
+    	animation: gradient 15s ease infinite;
       color: #333;
+    }
+    
+    @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+
     }
     h1, h2 {
       color: #2c3e50;
@@ -68,15 +79,75 @@
       margin: 2em auto;
       max-width: 600px;
     }
+    
+    .badge {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      background: #ffc107;
+      color: #333;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 10;
+    }
+    
+    .badge::after {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 8px 8px 8px 0;
+      border-style: solid;
+      border-color: transparent #ffc107 transparent transparent;
+    }
+    
+    .badge.unlocked {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+      animation: bounce 0.6s;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(-50%) scale(1); }
+      30% { transform: translateY(-50%) scale(1.2); }
+      60% { transform: translateY(-50%) scale(0.9); }
+    }
+    
+    /* Section highlights */
+    section:target {
+      background: rgba(255, 193, 7, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      animation: highlight 2s;
+    }
+    
+    @keyframes highlight {
+      from { background: rgba(255, 193, 7, 0.3); }
+      to { background: rgba(255, 193, 7, 0.1); }
+    }
+    
   </style>
 </head>
 <body>
-  <h1>🧱 HTML Basics – Structure & Syntax</h1>
+  <div id="badge-container" style="position: fixed; top: 10px; right: 10px; z-index: 100;"></div>
+  
+  <h1 id="html-basics">🧱 HTML Basics – Structure & Syntax 
+  <span class="badge" data-badge="New Learner"></span>
+</h1>
 
-  <h2>1. 💡 What is HTML?</h2>
+  <h2>💡 What is HTML?</h2>
   <p><strong>HTML (HyperText Markup Language)</strong> is the standard language used to create webpages. It uses <strong>tags</strong> to structure content.</p>
 <br>
-  <h2>2. 🏗️ Basic HTML Document Structure</h2>
+  <h2 id="document-structure">🏗️ Basic HTML Document Structure 
+  <span class="badge" data-badge="Architect"></span>
+</h2>
   <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -98,7 +169,7 @@
     <tr><td>&lt;body&gt;</td><td>Visible content of the page</td></tr>
   </table>
 
-  <h2>3. 🏷️ HTML Tags</h2>
+  <h2>🏷️ HTML Tags</h2>
   <p>Tags are enclosed in angle brackets: <code>&lt;tagname&gt;</code></p>
   <p>Most tags have an opening and closing pair:</p>
   <pre><code>&lt;p&gt;This is text&lt;/p&gt;</code></pre>
@@ -120,7 +191,7 @@
   </div>
   
 
-  <h2>4. 🔤 Common HTML Tags</h2>
+  <h2> 🔤 Common HTML Tags</h2>
   <table>
     <tr><th>Tag</th><th>Use</th></tr>
     <tr><td>&lt;h1&gt; to &lt;h6&gt;</td><td>Headings, from largest to smallest</td></tr>
@@ -133,7 +204,7 @@
     <tr><td>&lt;strong&gt;, &lt;em&gt;</td><td>Bold and italic text</td></tr>
   </table>
 
-  <h2>5. 🎨 HTML Attributes</h2>
+  <h2>🎨 HTML Attributes</h2>
   <p>Attributes give more information about tags. They are written in the opening tag.</p>
   <pre><code>&lt;a href="https://example.com" target="_blank"&gt;Visit Example&lt;/a&gt;</code></pre>
   <table>
@@ -147,7 +218,7 @@
     <tr><td>target</td><td>Where to open a link (_blank, _self)</td></tr>
   </table>
 
-  <h2>6. 🧩 Nesting Elements</h2>
+  <h2>🧩 Nesting Elements</h2>
   <p>HTML elements can be nested inside each other. Always properly close tags!</p>
   <p><strong>✅ Good:</strong></p>
   <pre><code>&lt;p&gt;This is a &lt;strong&gt;bold&lt;/strong&gt; word.&lt;/p&gt;</code></pre>
@@ -164,13 +235,13 @@
     </div>
   </div>
 
-  <h2>7. 💬 Comments</h2>
+  <h2>💬 Comments</h2>
   <p>Use comments to leave notes in your code:</p>
   <pre><code>&lt;!-- This is a comment --&gt;</code></pre>
 
   
 
-  <h2>8. 🔹 Lists</h2>
+  <h2>🔹 Lists</h2>
   <br>
   <div class="code-output-row">
     <div class="code-column">
@@ -205,7 +276,7 @@
     </div>
   </div>
 
-  <h2>9. 🖼️ Images</h2>
+  <h2> 🖼️ Images</h2>
   To insert an image in HTML we need the source, which is out<code> src </code>. This image is from a web address so our <code>img src</code> is from a webpage.
   <div class="code-output-row">
     <div class="code-column">
@@ -219,7 +290,7 @@
 <hr>
 
 
-  <h2>10. 📋 Tables</h2>
+  <h2> 📋 Tables</h2>
 Below is the HTML to create a <code> table </code>. Notice the tags!
   <div class="code-output-row">
     <div class="code-column">
