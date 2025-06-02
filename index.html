@@ -44,6 +44,30 @@
       justify-content: center;
       margin: 2em 0;
     }
+    .code-output-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 2em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .code-column, .output-column {
+      flex: 1 1 45%;
+      min-width: 300px;
+    }
+    .output-column {
+      background: white;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .tip-box {
+      background: #fff8dc;
+      border-left: 6px solid #ffb347;
+      padding: 1em;
+      margin: 2em auto;
+      max-width: 600px;
+    }
   </style>
 </head>
 <body>
@@ -51,7 +75,7 @@
 
   <h2>1. 💡 What is HTML?</h2>
   <p><strong>HTML (HyperText Markup Language)</strong> is the standard language used to create webpages. It uses <strong>tags</strong> to structure content.</p>
-
+<br>
   <h2>2. 🏗️ Basic HTML Document Structure</h2>
   <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -82,6 +106,19 @@
   <pre><code>&lt;img src="image.jpg" alt="description"&gt;
 &lt;br&gt;
 &lt;hr&gt;</code></pre>
+
+<div class="tip-box">
+    <strong>&lt;br&gt;:</strong> Line break. Used to start a new line without a new paragraph.
+    <br><em>Example:</em> <code>&lt;p&gt;Hello&lt;br&gt;World&lt;/p&gt;</code>
+    <div><strong>Output:</strong> <p>Hello<br>World</p></div>
+  </div>
+  
+    <div class="tip-box">
+    <strong>&lt;hr&gt;:</strong> Horizontal rule. Used to create a thematic break in the page.
+    <br><em>Example:</em> <code>&lt;hr&gt;</code>
+    <div><strong>Output:</strong> <hr></div>
+  </div>
+  
 
   <h2>4. 🔤 Common HTML Tags</h2>
   <table>
@@ -117,28 +154,134 @@
   <p><strong>❌ Bad:</strong></p>
   <pre><code>&lt;p&gt;This is a &lt;strong&gt;bold&lt;/p&gt;&lt;/strong&gt;</code></pre>
 
+  <p>❌ Incorrect Nesting Example</p>
+  <div class="code-output-row">
+    <div class="code-column">
+      <pre><code>&lt;p&gt;&lt;h1&gt;Title&lt;/h1&gt;&lt;/p&gt;</code></pre>
+    </div>
+    <div class="output-column">
+      <p><h1>Title</h1></p>
+    </div>
+  </div>
+
   <h2>7. 💬 Comments</h2>
   <p>Use comments to leave notes in your code:</p>
   <pre><code>&lt;!-- This is a comment --&gt;</code></pre>
 
-  <h2>8. ⚠️ Best Practices</h2>
+  
+
+  <h2>8. 🔹 Lists</h2>
+  <br>
+  <div class="code-output-row">
+    <div class="code-column">
+      <p><strong>Unordered list:</strong></p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Bananas&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+      <p><strong>Ordered list:</strong></p>
+      <pre><code>&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </div>
+    <br>
+    <br>
+    <div class="output-column">
+      <br>
+      <p><strong>Unordered list:</strong></p>
+      <ul>
+        <li>Apples</li>
+        <li>Bananas</li>
+      </ul>
+      <br>
+      <br>
+      <p><strong>Ordered list:</strong></p>
+      <ol>
+        <li>First step</li>
+        <li>Second step</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2>9. 🖼️ Images</h2>
+  To insert an image in HTML we need the source, which is out<code> src </code>. This image is from a web address so our <code>img src</code> is from a webpage.
+  <div class="code-output-row">
+    <div class="code-column">
+      <pre><code>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/019_Stacked_images_of_an_European_Bee-eater_in_flight_Photo_by_Giles_Laurent.jpg/500px-019_Stacked_images_of_an_European_Bee-eater_in_flight_Photo_by_Giles_Laurent.jpg" alt="Birds flying."&gt;</code></pre>
+      <hr>
+      Below, we have a picture of a flock of European Bee Eaters. Taken from WikiMedia.
+    </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/019_Stacked_images_of_an_European_Bee-eater_in_flight_Photo_by_Giles_Laurent.jpg/500px-019_Stacked_images_of_an_European_Bee-eater_in_flight_Photo_by_Giles_Laurent.jpg" alt="Birds flying.">
+    </div>
+  </div>
+<hr>
+
+
+  <h2>10. 📋 Tables</h2>
+Below is the HTML to create a <code> table </code>. Notice the tags!
+  <div class="code-output-row">
+    <div class="code-column">
+<pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Alice&lt;/td&gt;
+    &lt;td&gt;24&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+    <div class="output-column">
+      <table>
+        <tr><th>Name</th><th>Age</th></tr>
+        <tr><td>Alice</td><td>24</td></tr>
+      </table>
+    </div>
+  </div>
+
+   <div class="tip-box">
+    <strong>&lt;tr&gt;:</strong> Table row. Used inside <code>&lt;table&gt;</code> to define a row.
+    <br><em>Example:</em> <code>&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;</code>
+    <div><strong>Output:</strong>
+      <table>
+        <tr><td>Cell</td></tr>
+      </table>
+    </div>
+  </div>
+  
+  
+   <div class="tip-box">
+    <strong>&lt;td&gt; and &lt;th&gt;:</strong> Table cell and table header cell respectively.
+    <br><em>Example:</em> <code>&lt;th&gt;Name&lt;/th&gt; &lt;td&gt;John&lt;/td&gt;</code>
+    <div><strong>Output:</strong>
+      <table>
+        <tr><th>Name</th><td>John</td></tr>
+      </table>
+    </div>
+  </div>
+  
+  <h2>⚠️ Remember!</h2>
   <ul>
     <li>Always close your tags.</li>
     <li>Use lowercase for tags and attributes.</li>
     <li>Keep nesting clear and logical.</li>
-    <li>Use semantic tags like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;main&gt;</code> for better accessibility and SEO.</li>
   </ul>
 
-  <h2>🎮 Examples and Demos</h2>
+  <h2>🎮 Interactive HTML Tag Quiz</h2>
+Let's see what you remember. You can always restart the game by clicking on the <code>button</code> to reset the game!
   <div class="embed-container">
     <div style="position: relative; width: 60%; padding-bottom: 70%; overflow: hidden;" title="embedded content">
       <iframe style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none;" src="https://codepen.io/Kyle-Groenewald/full/dPoMwJb" allowfullscreen="allowfullscreen"></iframe>
     </div>
   </div>
 
+  <h2>👋 Activity: Practice Writing HTML</h2>
+  <p>Try writing your own HTML code in the live editor below. Experiment with headings, paragraphs and lists!</p>
   <div class="embed-container">
     <iframe style="width: 100%; max-width: 800px;" title="Untitled" src="https://codepen.io/Kyle-Groenewald/embed/MYwyzQb?default-tab=html%2Cresult&amp;editable=true" height="300" loading="lazy" allowfullscreen="allowfullscreen"></iframe>
   </div>
-
 </body>
 </html>
